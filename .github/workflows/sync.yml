@@ -1,6 +1,11 @@
 name: Mirror to Gitee Repo
 
-on: [ push, delete, create ]
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+    - cron: 0 50 20 * *
 
 jobs:
   git-mirror:
