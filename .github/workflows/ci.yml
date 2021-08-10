@@ -52,8 +52,20 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: make defconfig
-
+        # run: make defconfig
+        run: |
+            rm -f ./.config*
+            touch ./.config
+            # 编译x64固件:
+            cat >> .config <<EOF
+            CONFIG_TARGET_x86=y
+            CONFIG_TARGET_x86_64=y
+            CONFIG_TARGET_x86_64_Generic=y
+            EOF
+            
+            sed -i 's/^[ \t]*//g' ./.config
+            make defconfig
+            
       - name: Make download
         run: |
           make download -j8
