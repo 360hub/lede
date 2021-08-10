@@ -8,6 +8,9 @@
 name: OpenWrt-CI
 
 on:
+  push:
+    branches: 
+      - master
   schedule:
     - cron: 0 20 * * *
   release:
@@ -101,7 +104,7 @@ jobs:
         if: github.event == 'release'
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.TOKEN }}
+          repo_token: ${{ secrets.MY_PRIVATE_KEY }}
           file: ./artifact/firmware/*
           tag: ${{ github.ref }}
           file_glob: true
