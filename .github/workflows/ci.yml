@@ -53,9 +53,7 @@ jobs:
           src-git kenzo https://github.com/kenzok8/openwrt-packages
           src-git small https://github.com/kenzok8/small
           EOF
-          
-          rm -rf ./package/lean/*
-          
+                    
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
