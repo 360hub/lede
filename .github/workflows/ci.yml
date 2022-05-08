@@ -65,8 +65,8 @@ jobs:
             # 编译x64固件:
             cat >> .config <<EOF
             CONFIG_TARGET_x86=y
-            CONFIG_TARGET_x86_64=y
-            CONFIG_TARGET_x86_64_Generic=y
+            # CONFIG_TARGET_x86_64=y
+            # CONFIG_TARGET_x86_64_Generic=y
             CONFIG_EFI_IMAGES=y
             CONFIG_LIBSODIUM_MINIMAL=y
             CONFIG_PACKAGE_boost=y
